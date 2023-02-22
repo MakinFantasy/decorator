@@ -6,13 +6,14 @@ import org.java.exceptions.InsertException;
 import org.java.exceptions.SelectException;
 import org.java.exceptions.UpdateException;
 
-public class Decorator {
+public class Decorator implements Command {
     Command command;
     public Decorator (Command command) {
         this.command = command;
     }
 
-    public void printStackTrace () {
+    @Override
+    public void exec () {
         try {
             command.exec();
         } catch (DeleteException | SelectException | InsertException | UpdateException ex) {
@@ -20,6 +21,7 @@ public class Decorator {
             for (StackTraceElement el : stack) {
                 System.out.println(el);
             }
+            throw ex;
         }
     }
 }
