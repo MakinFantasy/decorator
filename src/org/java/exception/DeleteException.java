@@ -1,4 +1,4 @@
-package org.java.exceptions;
+package org.java.exception;
 
 public class DeleteException extends RuntimeException {
 

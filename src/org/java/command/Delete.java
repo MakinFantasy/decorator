@@ -1,13 +1,10 @@
 package org.java.command;
 
-import org.java.exceptions.DeleteException;
+import org.java.exception.DeleteException;
 
 public class Delete implements Command{
-
-    Database db = new Database();
-
     @Override
-    public void exec() {
+    public void exec(Database db) {
         db.delete();
         throw new DeleteException("delete ex");
     }
