@@ -6,9 +6,7 @@ import org.java.decorator.Decorator;
 
 public class Main {
     public static void main(String[] args) {
-        Decorator deleteDecorated = new Decorator(new Delete());
-        Decorator insertDecorated = new Decorator(new Insert());
-        insertDecorated.exec(new Database());
-        deleteDecorated.exec(new Database());
+        Decorator decorator = new Decorator(new Delete()); // Decorator decorator = new Decorator (new Insert());
+        decorator.exec(new Database());
     }
 }
